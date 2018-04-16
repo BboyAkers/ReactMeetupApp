@@ -1,0 +1,74 @@
+import React, { Component } from 'react';
+
+import MeetupAttendee from './meetupAttendee';
+
+import jsonp from 'jsonp-es6';
+import Spinner from 'react-easy-spinner';
+import Modal from 'react-modal';
+
+class MeetupRsvpList extends Component {
+  state = {
+    attendeesModalIsOpen: false,
+    attendees: null
+  };
+  openAttendeesModal() {
+    this.setState({
+      attendeesModalIsOpen: true
+    }, () => {
+      setTimeout(this.viewAttendees.bind(this), 2000);
+    });
+  }
+  closeAttendeesModal() {
+    this.setState({
+      attendeesModalIsOpen: false
+    });
+  }
+  viewAttendees() {
+    let API_KEY = '13f4a733f524e2a2e1e334637186651';
+    return jsonp(`https://api.meetup.com/reactjs-dallas/events/${this.props.eventId}/rsvps?key=${API_KEY}&sign=true&photo-host=public&response=yes`)
+    .then(res => {
+      const attendees = res.data;
+      this.setState({ 
+        attendees 
+      });
+      console.log(attendees)
+    });
+  }
+
+  render() {   
+    const {attendees, attendeesModalIsOpen} = this.state;
+    const loaded = attendees !== null;
+
+    let settings = {
+      shape: "triangleUp",
+      animation: "pulse",
+      time: "2s",
+      duration: 'infinite',
+      opacity: '0.3',
+      bgColor: '#27556c',
+      elColor: '#2d1557'
+    };
+
+    let attendeesComponents = null;
+
+    if(loaded && attendees.length > 0) {
+      attendeesComponents =  attendees.map(attendeeData =><div key={attendeeData.member.id}><MeetupAttendee attendeeData={attendeeData}/></div>);
+    }
+
+    return (
+      <div>
+        <div className="btn btn-default" 
+          onClick={this.openAttendeesModal.bind(this)}>View Attendees</div>
+        <Modal
+          isOpen={attendeesModalIsOpen}
+          ariaHideApp={false}>
+          {loaded ? null : <Spinner {...settings}/>}
+          {attendeesComponents}
+          <button onClick={this.closeAttendeesModal.bind(this)}>Close the modal!</button>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+export default MeetupRsvpList;
