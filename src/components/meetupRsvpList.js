@@ -24,7 +24,7 @@ class MeetupRsvpList extends Component {
     });
   }
   viewAttendees() {
-    let API_KEY = '13f4a733f524e2a2e1e334637186651';
+    let API_KEY = '<INSERT_API_KEY>';
     return jsonp(`https://api.meetup.com/reactjs-dallas/events/${this.props.eventId}/rsvps?key=${API_KEY}&sign=true&photo-host=public&response=yes`)
     .then(res => {
       const attendees = res.data;
