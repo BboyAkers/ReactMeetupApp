@@ -2,6 +2,7 @@
   "name": "reactjsmeetupapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://austinakers.com/meetupapp/",
   "dependencies": {
     "jsonp-es6": "^1.0.0",
     "material-ui": "^0.20.0",

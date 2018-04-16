@@ -5,9 +5,11 @@ import '../styles/Card.css';
 class MeetupAttendee extends Component {
   render() {
     return (
-      <div className="card card-depth-1">
+      <div>
         <div>
-          <h4>{this.props.attendeeData.member.name}</h4>
+          <img className="thumbnail-image" src={this.props.attendeeData.member.photo.thumb_link} alt="thumbnail image"/>
+          <h4 className="display-inline-block attendee-name">{this.props.attendeeData.member.name}</h4>
+          
           {/* <h6>{this.props.event.local_date}</h6> */}
         </div>
         <div>
@@ -16,6 +18,8 @@ class MeetupAttendee extends Component {
           <p>{this.props.event.venue.city}</p>
           <p>{this.props.event.venue.state}</p> */}
         </div>
+        <br/>
+        <hr />
       </div>
     );
   }

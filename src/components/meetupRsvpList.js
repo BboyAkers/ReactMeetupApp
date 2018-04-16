@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MeetupAttendee from './meetupAttendee';
-
+import '../styles/Card.css';
 import jsonp from 'jsonp-es6';
 import Spinner from 'react-easy-spinner';
 import Modal from 'react-modal';
@@ -15,7 +15,7 @@ class MeetupRsvpList extends Component {
     this.setState({
       attendeesModalIsOpen: true
     }, () => {
-      setTimeout(this.viewAttendees.bind(this), 2000);
+      setTimeout(this.viewAttendees.bind(this));
     });
   }
   closeAttendeesModal() {
@@ -57,14 +57,19 @@ class MeetupRsvpList extends Component {
 
     return (
       <div>
+        <p>{this.props. nbhu}</p>
         <div className="btn btn-default" 
           onClick={this.openAttendeesModal.bind(this)}>View Attendees</div>
         <Modal
           isOpen={attendeesModalIsOpen}
           ariaHideApp={false}>
+          <h1 className="center-text">Da homies who said yes</h1>
+          <br/>
           {loaded ? null : <Spinner {...settings}/>}
           {attendeesComponents}
-          <button onClick={this.closeAttendeesModal.bind(this)}>Close the modal!</button>
+          <div className="bottom-right">
+            <button  className="btn btn-default" onClick={this.closeAttendeesModal.bind(this)}>Close the modal!</button>
+          </div>
         </Modal>
       </div>
     );
