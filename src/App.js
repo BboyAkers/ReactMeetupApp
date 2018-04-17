@@ -1,13 +1,16 @@
 // External Dependencies
 import React, { Component } from 'react';
+import CssBaseline from 'material-ui/CssBaseline';
 import jsonp from 'jsonp-es6';
 
 // Internal Dependencies
 import MeetupList from './components/meetupList';
+import Navbar from './components/Navbar';
 
 // Local Variables
 const wrapper = {
-  background: '#e2e1e0',
+  background: '#F4F4F4',
+  fontFamily: 'ariel',
   textAlign: 'center'
 }
 
@@ -30,6 +33,8 @@ class App extends Component {
     const { events } = this.state;
     return (
       <div style={wrapper}>
+        <CssBaseline />
+        <Navbar />
         <MeetupList events={events} />
       </div>
     );

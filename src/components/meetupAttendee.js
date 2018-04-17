@@ -22,7 +22,7 @@ export default class MeetupAttendee extends Component {
     return (
       <div>
         <div>
-          <img style={imgStyle} src={attendeeData.member.photo.thumb_link} alt="thumbnail image" />
+          <img style={imgStyle} src={attendeeData.member.photo.thumb_link} alt="Attendees" />
           <h4 style={attendeeStyle}>{attendeeData.member.name}</h4>
         </div>
         <br />

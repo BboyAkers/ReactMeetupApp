@@ -1,17 +1,18 @@
 .btn {
-  font-size: .8rem;
-  padding: .85rem 2.13rem;
-  border-radius: 2px;
   border: 0;
+  border-radius: 2px;
   color: #fff!important;
-  margin: 6px;
-  white-space: normal!important;
+  cursor: pointer;
   display: inline-block;
+  font-size: 1rem;
+  margin: 6px;
+  padding: .85rem 2.13rem;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  white-space: normal!important;
 }
 .btn-default {
-  float: right;
-  background: #2BBBAD;
+  background: #4054B2;
+  float: right; 
 }
 .btn:hover {
   box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
