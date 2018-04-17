@@ -4,8 +4,10 @@
   "private": true,
   "homepage": "https://austinakers.com/meetupapp/",
   "dependencies": {
+    "@material-ui/icons": "^1.0.0-beta.42",
     "jsonp-es6": "^1.0.0",
-    "material-ui": "^0.20.0",
+    "material-ui": "^1.0.0-beta.42",
+    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-easy-spinner": "^1.0.2",

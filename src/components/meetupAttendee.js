@@ -1,20 +1,33 @@
+// External Dependencies
 import React, { Component } from 'react';
 
+// Internal Dependencies
 import '../styles/Card.css';
 
-class MeetupAttendee extends Component {
+// Local Variables
+const imgStyle = {
+  float: 'left',
+  borderRadius: '20px'
+}
+
+const attendeeStyle = {
+  display: 'inline-block',
+  marginLeft: '15px'
+}
+
+// Component Definition
+export default class MeetupAttendee extends Component {
   render() {
+    const { attendeeData } = this.props;
     return (
       <div>
         <div>
-          <img className="thumbnail-image" src={this.props.attendeeData.member.photo.thumb_link} alt="thumbnail image"/>
-          <h4 className="display-inline-block attendee-name">{this.props.attendeeData.member.name}</h4>
+          <img style={imgStyle} src={attendeeData.member.photo.thumb_link} alt="Attendees" />
+          <h4 style={attendeeStyle}>{attendeeData.member.name}</h4>
         </div>
-        <br/>
+        <br />
         <hr />
       </div>
     );
   }
 }
-
-export default MeetupAttendee;
